@@ -3,7 +3,7 @@
 <p>Here are all your employees:</p>
 
 <ul>
-  <% @employees.each do |employee| %>
+  <% @employees.not_fired().each do |employee| %>
   <li><%= employee.employee_name %></li>
   <% end %>
 </ul>

@@ -12,7 +12,7 @@ end
 
 post('/employees') do
   employee_name = params.fetch('employee_name')
-  @employee = Employee.new({:employee_name => employee_name})
+  @employee = Employee.new({:employee_name => employee_name, :fired => false})
   @employee.save()
   redirect('/')
 end
@@ -26,6 +26,13 @@ patch("/employees/:id") do
   employee_name = params.fetch("employee_name")
   @employee = Employee.find(params.fetch("id").to_i())
   @employee.update({:employee_name => employee_name})
+  @employees = Employee.all()
+  erb(:index)
+end
+
+delete("/employees/:id") do
+  @employee = Employee.find(params.fetch("id").to_i())
+  @employee.delete()
   @employees = Employee.all()
   erb(:index)
 end
