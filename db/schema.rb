@@ -11,17 +11,23 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20150126181952) do
+ActiveRecord::Schema.define(version: 20150126201347) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
 
+  create_table "divisions", force: :cascade do |t|
+    t.string   "division_name"
+    t.datetime "created_at"
+    t.datetime "updated_at"
+  end
+
   create_table "employees", force: :cascade do |t|
     t.string   "employee_name"
-    t.integer  "division_id"
     t.boolean  "fired"
     t.datetime "created_at"
     t.datetime "updated_at"
+    t.integer  "division_id"
   end
 
 end
