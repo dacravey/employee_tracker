@@ -11,4 +11,12 @@ describe(Employee) do
       expect(Employee.not_fired()).to(eq(not_fired_employees))
     end
   end
+
+  describe(Employee) do
+    it("tells which division employee belongs to") do
+      division = Division.create({:division_name => "division_name"})
+      employee = Employee.create({:employee_name => "employee_name", :division_id => division.id})
+      expect(employee.division()).to(eq(division))
+    end
+  end
 end
