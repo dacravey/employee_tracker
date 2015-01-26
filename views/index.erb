@@ -1,6 +1,6 @@
 <h1>Employee Tracker</h1>
 
-<p>Here are all your employees:</p>
+<p></p>
 
 <ul>
   <% @employees.not_fired().each do |employee| %>
@@ -14,7 +14,7 @@
   <label for='employee_name'>Name</label>
   <input id='employee_name' name='employee_name' type='text'>
 
-  <button type="submit">Add employee</button>
+  <button type="submit" class="btn btn-sm btn-primary">Add employee</button>
 </form>
 
 <% @employees.each() do |employee| %>
