@@ -16,3 +16,7 @@
 
   <button type="submit">Add employee</button>
 </form>
+
+<% @employees.each() do |employee| %>
+<li><%= employee.employee_name %> <a href="/employees/<%= employee.id() %>/edit">Update this employee's record</a></li>
+<% end %>
