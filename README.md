@@ -1,7 +1,7 @@
 Employee Tracker
 ========
 
-by Debbie Cravey
+by Debbie Cravey and Jessica Hori
 
 Employee Tracker is a simple directory of a company's divisions and employees using Active Record to control SQL database functions.
 
