@@ -6,12 +6,15 @@
 
 <p>Add a new Division</p>
 
+<div class="jumbotron">
 <form action='/divisions' method='post'>
   <label for='division_name'>Division Name</label>
   <input id='division_name' name='division_name' type='text'>
 
   <button type="submit" class="btn btn-sm btn-primary">Add Division</button>
 </form>
+
+</div>
 
 <% if @divisions.any?() %>
 <p>Click on a division to see its employees:</p>
