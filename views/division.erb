@@ -1,0 +1,26 @@
+<h2>Add an employee to <%= @division.division_name() %>'s roster </h2>
+
+
+  <form action="/employees" method="post">
+    <input id="division_id" name="division_id" type="hidden" value="<%= @division.id() %>">
+
+    <label for="employee_name">Employee Name:</label>
+    <input id="employee_name" name="employee_name" type="text">
+
+    <button type="submit">Add Employee</button>
+  </form>
+
+  <% if @division.employees().any?() %>
+  <h4>Here are all the employees in this list:</h4>
+
+  <ul>
+    <% @division.employees().each() do |employee| %>
+    <li><%= employee.employee_name() %></li>
+    <% end %>
+  </ul>
+  <% else %>
+  <p>This division has no employees yet!</p>
+  <% end %>
+
+  <p><a href="/divisions/<%= @division.id() %>/edit">Edit or Delete <%= @division.division_name() %>'s info</a></p>
+  <p><a href="/">Return to Main Page</a></p>

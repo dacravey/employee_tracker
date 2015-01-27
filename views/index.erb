@@ -2,21 +2,27 @@
 
 <p></p>
 
-<ul>
-  <% @employees.not_fired().each do |employee| %>
-  <li><%= employee.employee_name %></li>
-  <% end %>
-</ul>
 
-<p>Add a new employee:</p>
 
-<form action='/employees' method='post'>
-  <label for='employee_name'>Name</label>
-  <input id='employee_name' name='employee_name' type='text'>
+<p>Add a new Division</p>
 
-  <button type="submit" class="btn btn-sm btn-primary">Add employee</button>
+<form action='/divisions' method='post'>
+  <label for='division_name'>Division Name</label>
+  <input id='division_name' name='division_name' type='text'>
+
+  <button type="submit" class="btn btn-sm btn-primary">Add Division</button>
 </form>
 
-<% @employees.each() do |employee| %>
-<li><%= employee.employee_name %> <a href="/employees/<%= employee.id() %>/edit">Update this employee's record</a></li>
+<% if @divisions.any?() %>
+<p>Click on a division to see its employees:</p>
+
+
+
+<ul>
+  <% @divisions.each do |division| %>
+  <li><a href="/divisions/<%= division.id() %>"><%= division.division_name() %></a></li>
+  <% end %>
+</ul>
+<% else %>
+<p>There are no divisions!</p>
 <% end %>
