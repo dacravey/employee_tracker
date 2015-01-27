@@ -65,4 +65,4 @@ https://github.com/dacravey/repository/issues
 License
 =======
 
-MIT License. Copyright 2015 Debbie Cravey
+MIT License. Copyright 2015 Debbie Cravey & Jessica Hori

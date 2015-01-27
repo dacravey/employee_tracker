@@ -14,13 +14,17 @@
   <h4>Here are all the employees in this list:</h4>
 
   <ul>
-    <% @division.employees().each() do |employee| %>
-    <li><%= employee.employee_name() %></li>
+    <% @division.employees.each() do |employee| %>
+    <li><%= employee.employee_name %> <a href="/employees/<%= employee.id() %>/edit">Update this employee's record</a></li>
     <% end %>
   </ul>
   <% else %>
   <p>This division has no employees yet!</p>
   <% end %>
 
+
   <p><a href="/divisions/<%= @division.id() %>/edit">Edit or Delete <%= @division.division_name() %>'s info</a></p>
+
+
+
   <p><a href="/">Return to Main Page</a></p>

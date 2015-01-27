@@ -51,3 +51,27 @@ delete("/divisions/:id") do
   @divisions = Division.all()
   erb(:index)
 end
+
+get("/employees/:id") do
+  @employee = Employee.find(params.fetch("id").to_i())
+  erb(:employee)
+end
+
+get("/employees/:id/edit") do
+  @employee = Employee.find(params.fetch("id").to_i())
+  erb(:employee_edit)
+end
+
+patch("/employees/:id") do
+  employee_name = params.fetch("employee_name")
+  @employee = Employee.find(params.fetch("id").to_i())
+  @employee.update({:employee_name => employee_name})
+  redirect('/')
+end
+
+delete("/employees/:id") do
+  @employee = Employee.find(params.fetch("id").to_i())
+  @employee.delete()
+  @employees = Employee.all()
+  redirect('/')
+end
